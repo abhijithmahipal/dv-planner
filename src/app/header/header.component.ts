@@ -29,7 +29,7 @@ export class HeaderComponent implements OnInit {
       const response = await this.auth.signOut();
       this.toastr.info('Login again to continue');
       this.email = null;
-      this.router.navigateByUrl('/signin');
+      this.router.navigateByUrl('/');
     } catch (error) {
       this.toastr.error('Something is wrong');
     }

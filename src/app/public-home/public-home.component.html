@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-xl-6 col-lg-6 col-sm-6 col-12">
+    <div class="col-xl-6 col-lg-6 col-sm-12 col-12">
         <h4>Welcome</h4>
         <img src="../../assets/dvhome.png" alt="" height="300">
         <p class="tagline">Best decisions come when u pair up.</p>
@@ -8,17 +8,75 @@
             implement all your ideas, dreams and plans.</p>
         <h3 class="my-3">Be like Daasan and Vijayan !</h3>
     </div>
-    <div class="col-xl-6 col-lg-6 col-sm-6 col-12">
-        <div class="row">
-            <div class="col-12">
-                
+    <div class="col-xl-6 col-lg-6 col-sm-12 col-12">
+        <div class="row mx-4">
+            <div class="col-12 my-4">
+                <div class="card">
+                    <div class="card-header text-center text-info text-uppercase">
+                        Sign In
+                    </div>
+                    <div class="card-body">
+                        <form (ngSubmit)="onSubmitSignin(signin)" #signin="ngForm">
+                            <div class="form-group row">
+                                <label for="email" class="col-sm-3 col-form-label">Email</label>
+                                <div class="col-sm-9">
+                                    <input type="email" class="form-control" id="email" name="email" ngModel
+                                        placeholder="Enter Email" required />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="password" class="col-sm-3 col-form-label">Password</label>
+                                <div class="col-sm-9">
+                                    <input type="password" class="form-control" id="password" name="password" ngModel
+                                        placeholder="Enter password" required />
+                                    <small id="emailHelp" class="form-text text-muted">Minimum length of the password
+                                        should be 6 or more</small>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button class="btn btn-primary" type="submit">
+                                    Sign In
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div>
-
-        </div>
-        <div>
-
+            <div class="col-12 my-3">
+                <div class="card">
+                    <div class="card-header text-center text-info text-uppercase">
+                        Sign Up
+                    </div>
+                    <div class="card-body">
+                        <form (ngSubmit)="onSubmitSignout(signout)" #signout="ngForm">
+                            <div class="form-group row">
+                                <label for="email" class="col-sm-3 col-form-label">Email</label>
+                                <div class="col-sm-9">
+                                    <input type="email" class="form-control" id="email" name="email" ngModel
+                                        placeholder="Enter Email" required />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="password" class="col-sm-3 col-form-label">Password</label>
+                                <div class="col-sm-9">
+                                    <input type="password" class="form-control" id="password" name="password" ngModel
+                                        placeholder="Enter password" required />
+                                    <small id="emailHelp" class="form-text text-muted">Minimum length of the password
+                                        should
+                                        be 6 or more</small>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button class="btn btn-primary" type="submit">
+                                    Sign Up
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div>
+            </div>
         </div>
     </div>
 </div>
