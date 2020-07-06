@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { FirestoreService } from '../services/firestore.service';
+import { DVMessage } from '../models/dvmessage';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-private-home',
@@ -8,14 +10,23 @@ import { FirestoreService } from '../services/firestore.service';
   styleUrls: ['./private-home.component.scss']
 })
 export class PrivateHomeComponent implements OnInit {
-  test: string;
+  leftMessage: string;
   user: any;
+  leftMessages: DVMessage[];
+  rightessages: DVMessage[];
+  messages: DVMessage[];
   constructor(
     private auth: AuthService,
     private firestoreService: FirestoreService
   ) { }
 
   ngOnInit(): void {
+    this.getUser();
+    this.getMessage();
+  }
+
+
+  private getUser() {
     this.auth.getUser().subscribe((user) => {
       this.user = user;
     },
@@ -24,10 +35,22 @@ export class PrivateHomeComponent implements OnInit {
       });
   }
 
-
-  createMessage () {
-    console.log(this.user);
-    const obj = { id: this.user.uid, message: this.test, updatedOn: new Date() };
+  saveLeft(f: NgForm) {
+    const {leftip} =  f.form.value;
+    const obj: DVMessage = { id: this.user.uid, message: leftip, updatedOn: new Date(), direction: 'left' };;
     return this.firestoreService.createMessage(obj);
+  }
+  saveRight(f: NgForm) {
+    const {rightip} =  f.form.value;
+    const obj: DVMessage = { id: this.user.uid, message: rightip, updatedOn: new Date(), direction: 'right' };;
+    return this.firestoreService.createMessage(obj);
+  }
+  getMessage() {
+    return this.firestoreService.getMessages().subscribe((msg) => {
+      this.messages = msg;
+      console.log(this.messages);
+    }, (err) => {
+      console.log(err.message);
+    });
   }
 }

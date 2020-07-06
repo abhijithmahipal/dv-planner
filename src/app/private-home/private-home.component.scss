@@ -1,0 +1,29 @@
+.half{
+    border: 1px solid white;
+    &.left{
+        background-color: #d0ebdb;
+        color: #0a2415;
+    }
+    &.right{
+        background-color: #d9d7f0;  
+        color: #110e2c;
+    }
+    .inputbox{
+        width: 70%;
+        min-height: 30px;
+    }
+    .msgbox{
+        min-width: 80%;
+        background-color: rgb(245, 247, 241);
+        color: #110e2c;
+        height: auto;
+        min-height: 50px;
+        margin: 15px;
+        border: 1px solid black;
+        border-radius: 20px;
+        padding: 10px;
+    }
+    .message-list{
+        height: 84vh;
+    }
+}
