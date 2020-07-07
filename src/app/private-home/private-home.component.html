@@ -2,31 +2,36 @@
     <div class="col-6 half left">
         <div class="message-list">
             <div class="row" *ngFor="let msg of messages">
-                <div *ngIf="msg.direction === 'left'" class="msgbox">{{msg.message}}</div>
-                <!-- <small id="updatedon" class="form-text text-muted">{{dateInformat(msg.updatedOn) | date :'fullDate'}}</small> -->
+                <div *ngIf="msg.direction === 'left'">
+                    <div class="msgbox">{{msg.message}}</div>
+                    <small id="updatedon"
+                        class="form-text text-muted pl-3">{{msg.updatedOn.toDate() | date :'medium'}}</small>
+                </div>
             </div>
         </div>
-    <form (ngSubmit)="saveLeft(leftForm)" #leftForm="ngForm">
-        <div class=" d-flex">
-
-            <input class="inputbox m-3"  ngModel type="text" name="leftip" id="left-ip" 
-            placeholder="Enter Message"
-            required>
-            <button type="submit" class="btn btn-primary m-3" id="left-btn">Save</button></div></form>
+        <form (ngSubmit)="saveLeft(leftForm)" #leftForm="ngForm">
+            <div class=" d-flex">
+                <input class="inputbox m-3" ngModel type="text" name="leftip" id="left-ip" placeholder="Enter Message"
+                    autocomplete="off" required>
+                <button type="submit" class="btn btn-primary m-3" id="left-btn">Save</button></div>
+        </form>
     </div>
     <div class="col-6 half right">
         <div class="message-list">
             <div class="row" *ngFor="let msg of messages">
-                <div  *ngIf="msg.direction === 'right'" class="msgbox">{{msg.message}}</div>
-                <!-- <small id="updatedon" class="form-text text-muted">{{dateInformat(msg.updatedOn) | date :'fullDate'}}</small> -->
+                <div *ngIf="msg.direction === 'right'">
+                    <div class="msgbox">{{msg.message}}
+                    </div>
+                    <small id="updatedon"
+                        class="form-text text-muted pl-3">{{msg.updatedOn.toDate() | date :'medium'}}</small>
+                </div>
             </div>
         </div>
-    <form (ngSubmit)="saveRight(rightForm)" #rightForm="ngForm">
-        <div class=" d-flex">
-
-            <input class="inputbox m-3"  ngModel type="text" name="rightip" id="right-ip" 
-            placeholder="Enter Message"
-            required>
-            <button type="submit" class="btn btn-primary m-3" id="left-btn">Save</button></div></form>
+        <form (ngSubmit)="saveRight(rightForm)" #rightForm="ngForm">
+            <div class=" d-flex">
+                <input class="inputbox m-3" ngModel type="text" name="rightip" id="right-ip" placeholder="Enter Message"
+                    autocomplete="off" required>
+                <button type="submit" class="btn btn-primary m-3" id="left-btn">Save</button></div>
+        </form>
     </div>
 </div>

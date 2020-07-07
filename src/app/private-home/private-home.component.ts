@@ -36,18 +36,20 @@ export class PrivateHomeComponent implements OnInit {
   }
 
   saveLeft(f: NgForm) {
-    const {leftip} =  f.form.value;
-    const obj: DVMessage = { id: this.user.uid, message: leftip, updatedOn: new Date(), direction: 'left' };;
+    const { leftip } = f.form.value;
+    const obj: DVMessage = { id: this.user.uid, message: leftip, updatedOn: new Date(), direction: 'left' };
+    f.resetForm();
     return this.firestoreService.createMessage(obj);
   }
   saveRight(f: NgForm) {
-    const {rightip} =  f.form.value;
-    const obj: DVMessage = { id: this.user.uid, message: rightip, updatedOn: new Date(), direction: 'right' };;
+    const { rightip } = f.form.value;
+    const obj: DVMessage = { id: this.user.uid, message: rightip, updatedOn: new Date(), direction: 'right' };
+    f.resetForm();
     return this.firestoreService.createMessage(obj);
   }
   getMessage() {
     return this.firestoreService.getMessages().subscribe((msg) => {
-      this.messages = msg;
+      this.messages = msg.filter(a => a.id === this.user.uid);
       console.log(this.messages);
     }, (err) => {
       console.log(err.message);
