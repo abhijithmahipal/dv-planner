@@ -69,6 +69,6 @@ export class PrivateHomeComponent implements OnInit {
     setTimeout(() => {
       this.scrollLeft.nativeElement.scrollTop = this.scrollLeft.nativeElement.scrollHeight;
       this.scrollRight.nativeElement.scrollTop = this.scrollRight.nativeElement.scrollHeight;
-    }, 100)
+    }, 100);
   }
 }
