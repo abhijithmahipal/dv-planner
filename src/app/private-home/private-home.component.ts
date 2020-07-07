@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewChecked } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { FirestoreService } from '../services/firestore.service';
 import { DVMessage } from '../models/dvmessage';
 import { NgForm } from '@angular/forms';
-
+import { sortBy } from 'lodash';
 @Component({
   selector: 'app-private-home',
   templateUrl: './private-home.component.html',
@@ -15,6 +15,8 @@ export class PrivateHomeComponent implements OnInit {
   leftMessages: DVMessage[];
   rightessages: DVMessage[];
   messages: DVMessage[];
+  @ViewChild('scrollLeft') private scrollLeft: ElementRef;
+  @ViewChild('scrollRight') private scrollRight: ElementRef;
   constructor(
     private auth: AuthService,
     private firestoreService: FirestoreService
@@ -23,6 +25,7 @@ export class PrivateHomeComponent implements OnInit {
   ngOnInit(): void {
     this.getUser();
     this.getMessage();
+    this.scrollToBottom();
   }
 
 
@@ -50,9 +53,16 @@ export class PrivateHomeComponent implements OnInit {
   getMessage() {
     return this.firestoreService.getMessages().subscribe((msg) => {
       this.messages = msg.filter(a => a.id === this.user.uid);
-      console.log(this.messages);
+      this.messages = sortBy(this.messages, m => m.updatedOn);
+      this.scrollToBottom();
     }, (err) => {
       console.log(err.message);
     });
+  }
+  scrollToBottom(): void {
+    setTimeout(() => {
+      this.scrollLeft.nativeElement.scrollTop = this.scrollLeft.nativeElement.scrollHeight;
+      this.scrollRight.nativeElement.scrollTop = this.scrollRight.nativeElement.scrollHeight;
+    }, 100)
   }
 }

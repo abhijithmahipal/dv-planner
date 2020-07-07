@@ -1,34 +1,39 @@
 <div class="d-flex">
     <div class="col-6 half left">
-        <div class="message-list">
+        <div class="message-list" #scrollLeft>
             <div class="row" *ngFor="let msg of messages">
-                <div *ngIf="msg.direction === 'left'">
-                    <div class="msgbox">{{msg.message}}</div>
+                <div *ngIf="msg.direction === 'left'" class="ml-3 my-3 mr-4">
+                    <div class="msgbox left">{{msg.message}}</div>
                     <small id="updatedon"
-                        class="form-text text-muted pl-3">{{msg.updatedOn.toDate() | date :'medium'}}</small>
+                        class="form-text text-muted pl-2">{{msg.updatedOn.toDate() | date :'medium'}}</small>
                 </div>
             </div>
         </div>
         <form (ngSubmit)="saveLeft(leftForm)" #leftForm="ngForm">
             <div class=" d-flex">
+                <img src="../../assets/daasan.jpg" width="40" alt="Avatar"
+                class="img-fluid rounded-circle profile-pic border-2 border-white">
                 <input class="inputbox m-3" ngModel type="text" name="leftip" id="left-ip" placeholder="Enter Message"
                     autocomplete="off" required>
                 <button type="submit" class="btn btn-primary m-3" id="left-btn">Save</button></div>
         </form>
     </div>
     <div class="col-6 half right">
-        <div class="message-list">
+        <div class="message-list" #scrollRight>
             <div class="row" *ngFor="let msg of messages">
-                <div *ngIf="msg.direction === 'right'">
-                    <div class="msgbox">{{msg.message}}
+                <div *ngIf="msg.direction === 'right'" class="ml-3 my-3 mr-4">
+                    <div class="msgbox right">
+                        {{msg.message}}
                     </div>
                     <small id="updatedon"
-                        class="form-text text-muted pl-3">{{msg.updatedOn.toDate() | date :'medium'}}</small>
+                        class="form-text text-muted pl-3 pt-1">{{msg.updatedOn.toDate() | date :'medium'}}</small>
                 </div>
             </div>
         </div>
         <form (ngSubmit)="saveRight(rightForm)" #rightForm="ngForm">
             <div class=" d-flex">
+                <img src="../../assets/vijayan.jpg" width="40" alt="Avatar"
+                class="img-fluid rounded-circle profile-pic border-2 border-white">
                 <input class="inputbox m-3" ngModel type="text" name="rightip" id="right-ip" placeholder="Enter Message"
                     autocomplete="off" required>
                 <button type="submit" class="btn btn-primary m-3" id="left-btn">Save</button></div>
