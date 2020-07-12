@@ -1,81 +1,85 @@
-<div class="row">
-    <div class="col-xl-6 col-lg-6 col-sm-12 col-12">
-        <h4>Welcome</h4>
-        <img src="../../assets/dvhome.png" class="img-responsive" alt="" height="300">
-        <p class="tagline">Best decisions comes when u pair up.</p>
-        <p class="tagline">Grab a partner, let it be your friend, lover, collegue or stranger.</p>
-        <p class="tagline"> Create a shared account here, plan like Dasan and Vijayan. Share, improvise, grow, and
-            implement all your ideas, dreams and plans.</p>
-        <h3 class="my-3">Be like Daasan and Vijayan !</h3>
-    </div>
-    <div class="col-xl-6 col-lg-6 col-sm-12 col-12">
-        <div class="row mx-4">
-            <div class="col-12 my-4">
-                <div class="card">
-                    <div class="card-header text-center text-info text-uppercase">
-                        Sign In
-                    </div>
-                    <div class="card-body">
-                        <form (ngSubmit)="onSubmitSignin(signin)" #signin="ngForm">
-                            <div class="form-group row">
-                                <label for="email" class="col-sm-3 col-form-label">Email</label>
-                                <div class="col-sm-9">
-                                    <input type="email" class="form-control" id="si-email" name="email" ngModel
-                                        placeholder="Enter Email" required />
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-6 col-lg-6 col-sm-12 col-12 pl-5">
+            <h4>Welcome</h4>
+            <img src="../../assets/dvhome.png" class="img-responsive" alt="" height="300">
+            <p class="tagline">Best decisions comes when u pair up.</p>
+            <p class="tagline">Grab a partner, let it be your friend, lover, collegue or stranger.</p>
+            <p class="tagline"> Create a shared account here, plan like Dasan and Vijayan. Share, improvise, grow, and
+                implement all your ideas, dreams and plans.</p>
+            <h3 class="my-3">Be like Daasan and Vijayan !</h3>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-sm-12 col-12">
+            <div class="row mx-4">
+                <div class="col-12 my-4">
+                    <div class="card">
+                        <div class="card-header text-center text-info text-uppercase">
+                            Sign In
+                        </div>
+                        <div class="card-body">
+                            <form (ngSubmit)="onSubmitSignin(signin)" #signin="ngForm">
+                                <div class="form-group row">
+                                    <label for="email" class="col-sm-3 col-form-label">Email</label>
+                                    <div class="col-sm-9">
+                                        <input type="email" class="form-control" id="si-email" name="email" ngModel
+                                            placeholder="Enter Email" required />
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="password" class="col-sm-3 col-form-label">Password</label>
-                                <div class="col-sm-9">
-                                    <input type="password" class="form-control" id="si-password" name="password" ngModel
-                                        placeholder="Enter password" required />
-                                    <small id="emailHelp" class="form-text text-muted">Minimum length of the password
-                                        should be 6 or more</small>
+                                <div class="form-group row">
+                                    <label for="password" class="col-sm-3 col-form-label">Password</label>
+                                    <div class="col-sm-9">
+                                        <input type="password" class="form-control" id="si-password" name="password"
+                                            ngModel placeholder="Enter password" required />
+                                        <small id="emailHelp" class="form-text text-muted">Minimum length of the
+                                            password
+                                            should be 6 or more</small>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="text-center">
-                                <button class="btn btn-primary" type="submit">
-                                    Sign In
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 my-3">
-                <div class="card">
-                    <div class="card-header text-center text-info text-uppercase">
-                        Sign Up
-                    </div>
-                    <div class="card-body">
-                        <form (ngSubmit)="onSubmitSignout(signout)" #signout="ngForm">
-                            <div class="form-group row">
-                                <label for="email" class="col-sm-3 col-form-label">Email</label>
-                                <div class="col-sm-9">
-                                    <input type="email" class="form-control" id="su-email" name="email" ngModel
-                                        placeholder="Enter Email" required />
+                                <div class="text-center">
+                                    <button class="btn btn-primary" type="submit">
+                                        Sign In
+                                    </button>
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="password" class="col-sm-3 col-form-label">Password</label>
-                                <div class="col-sm-9">
-                                    <input type="password" class="form-control" id="su-password" name="password" ngModel
-                                        placeholder="Enter password" required />
-                                    <small id="emailHelp" class="form-text text-muted">Minimum length of the password
-                                        should
-                                        be 6 or more</small>
-                                </div>
-                            </div>
-                            <div class="text-center">
-                                <button class="btn btn-primary" type="submit">
-                                    Sign Up
-                                </button>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div>
+                <div class="col-12 my-3">
+                    <div class="card">
+                        <div class="card-header text-center text-info text-uppercase">
+                            Sign Up
+                        </div>
+                        <div class="card-body">
+                            <form (ngSubmit)="onSubmitSignout(signout)" #signout="ngForm">
+                                <div class="form-group row">
+                                    <label for="email" class="col-sm-3 col-form-label">Email</label>
+                                    <div class="col-sm-9">
+                                        <input type="email" class="form-control" id="su-email" name="email" ngModel
+                                            placeholder="Enter Email" required />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="password" class="col-sm-3 col-form-label">Password</label>
+                                    <div class="col-sm-9">
+                                        <input type="password" class="form-control" id="su-password" name="password"
+                                            ngModel placeholder="Enter password" required />
+                                        <small id="emailHelp" class="form-text text-muted">Minimum length of the
+                                            password
+                                            should
+                                            be 6 or more</small>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <button class="btn btn-primary" type="submit">
+                                        Sign Up
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                </div>
             </div>
         </div>
     </div>
