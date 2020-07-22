@@ -19,8 +19,8 @@ const routes: Routes = [
   {
     path: 'home',
     component: PrivateHomeComponent,
-    canActivate: [AngularFireAuthGuard],
-    data: { authGuardPipe: redirectUnauthorizedToLogin }
+    // canActivate: [AngularFireAuthGuard],
+    // data: { authGuardPipe: redirectUnauthorizedToLogin }
   },
   {
     path: '**',
